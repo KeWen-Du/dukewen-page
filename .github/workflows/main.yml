@@ -14,10 +14,4 @@ jobs:
     - name: build pages
       run: mdbook build
     - name: Deploy to GitHub
-      env:
-        GITHUB_DEPLOY_KEY: ${{ secrets.PUSH_PAGE }}
-      run: |
-        touch book/.nojekyll
-        curl -LsSf https://raw.githubusercontent.com/rust-lang/simpleinfra/master/setup-deploy-keys/src/deploy.rs | rustc - -o /tmp/deploy
-        cd book
-        /tmp/deploy
+      run: cd book
