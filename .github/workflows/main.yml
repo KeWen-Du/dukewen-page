@@ -19,5 +19,5 @@ jobs:
       run: |
         touch book/.nojekyll
         curl -LsSf https://raw.githubusercontent.com/rust-lang/simpleinfra/master/setup-deploy-keys/src/deploy.rs | rustc - -o /tmp/deploy
-        cd guide/book
+        cd book
         /tmp/deploy
