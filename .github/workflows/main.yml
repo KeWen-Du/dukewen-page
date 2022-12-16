@@ -2,10 +2,20 @@ name: PUSH_PAGE
 run-name: ${{ github.actor }} 的PAGE更新了 🚀
 on: [push]
 jobs:
-  START_PAGE:
+  pages:
+    name: GitHub Pages
     runs-on: ubuntu-latest
     steps:
-      - run: apt-get install rust
-      - run: build-essential
-      - run: cargo install mdbook
-      - run: mdbook serve
+    - uses: actions/checkout@main
+    - name: Install Rust (rustup)
+      run: rustup update stable --no-self-update && rustup default stable
+    - name: Build book
+      run: cargo run -- build guide
+    - name: Deploy to GitHub
+      env:
+        GITHUB_DEPLOY_KEY: ${{ secrets.PUSH_PAGE }}
+      run: |
+        touch guide/book/.nojekyll
+        curl -LsSf https://raw.githubusercontent.com/rust-lang/simpleinfra/master/setup-deploy-keys/src/deploy.rs | rustc - -o /tmp/deploy
+        cd guide/book
+        /tmp/deploy
