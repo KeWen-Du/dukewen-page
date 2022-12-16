@@ -2,10 +2,10 @@ name: PUSH_PAGE
 run-name: ${{ github.actor }} 的PAGE更新了 🚀
 on: [push]
 jobs:
-  Explore-GitHub-Actions:
+  START_PAGE:
     runs-on: ubuntu-latest
     steps:
-      - run: curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf | sh
+      - run: apt-get install rust
       - run: build-essential
       - run: cargo install mdbook
       - run: mdbook serve
