@@ -15,3 +15,13 @@ jobs:
       run: mdbook build
     - name: Deploy to GitHub
       run: cd book
+    - name: Setup Pages
+      uses: actions/configure-pages@main
+    - name: Upload artifact
+      uses: actions/upload-pages-artifact@main
+      with:
+        # Upload entire repository
+        path: 'book'
+    - name: Deploy to GitHub Pages
+      id: deployment
+      uses: actions/deploy-pages@main
