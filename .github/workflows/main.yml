@@ -5,23 +5,23 @@ jobs:
   pages:
     name: GitHub Pages
     runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@main
-    - name: Install Rust (rustup)
-      run: rustup update stable --no-self-update && rustup default stable
-    - name: Install mdbook
-      run: cargo install mdbook
-    - name: build pages
-      run: mdbook build
-    - name: Deploy to GitHub
-      run: cd book
-    - name: Setup Pages
-      uses: actions/configure-pages@main
-    - name: Upload artifact
-      uses: actions/upload-pages-artifact@main
-      with:
-        # Upload entire repository
-        path: 'book'
-    - name: Deploy to GitHub Pages
-      id: deployment
-      uses: actions/deploy-pages@main
+    # steps:
+    # - uses: actions/checkout@main
+    # - name: Install Rust (rustup)
+    #   run: rustup update stable --no-self-update && rustup default stable
+    # - name: Install mdbook
+    #   run: cargo install mdbook
+    # - name: build pages
+    #   run: mdbook build
+    # - name: Deploy to GitHub
+    #   run: cd book
+    # - name: Setup Pages
+    #   uses: actions/configure-pages@main
+    # - name: Upload artifact
+    #   uses: actions/upload-pages-artifact@main
+    #   with:
+    #     # Upload entire repository
+    #     path: 'book'
+    # - name: Deploy to GitHub Pages
+    #   id: deployment
+    #   uses: actions/deploy-pages@main
