@@ -2,7 +2,7 @@
 title = "dukewen-page"
 description = "Create book from markdown files. Like Gitbook but implemented in Rust"
 authors = ["dukewen"]
-language = "zh-cn"
+language = "en"
 
 [rust]
 edition = "2018"
